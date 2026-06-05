@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 제주감귤축제 | Jeju Citrus Festival</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #E8670A;
+    --orange-light: #F7A943;
+    --orange-pale: #FEF3E8;
+    --orange-dark: #B04E05;
+    --green: #2E6B3E;
+    --green-light: #4A9B5F;
+    --green-pale: #EAF5ED;
+    --cream: #FDF8F0;
+    --brown: #5C3D1E;
+    --text: #1A1208;
+    --text-muted: #6B5B3E;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+    background: rgba(253,248,240,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1.5px solid var(--orange-light);
+    padding: 0 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 700; font-size: 17px; color: var(--orange-dark);
+    text-decoration: none;
+  }
+  .nav-logo svg { flex-shrink: 0; }
+  .nav-links { display: flex; gap: 0; }
+  .nav-links a {
+    padding: 8px 20px;
+    font-size: 14px; font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: 24px;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .nav-links a:hover { color: var(--orange); background: var(--orange-pale); }
+  .nav-cta {
+    background: var(--orange); color: var(--white) !important;
+    border-radius: 24px; padding: 8px 22px !important;
+    font-weight: 700 !important;
+    transition: all 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--orange-dark) !important; color: var(--white) !important; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 100px 24px 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(160deg, #FEF3E8 0%, #FDF8F0 40%, #EAF5ED 100%);
+    z-index: 0;
+  }
+  .hero-deco {
+    position: absolute; inset: 0; z-index: 1;
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 780px; }
+  .hero-badge {
+    display: inline-block;
+    background: var(--green); color: var(--white);
+    font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+    padding: 6px 18px; border-radius: 20px;
+    margin-bottom: 28px;
+  }
+  .hero-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(42px, 7vw, 76px);
+    font-weight: 900; line-height: 1.1;
+    color: var(--orange-dark);
+    margin-bottom: 12px;
+  }
+  .hero-title span { color: var(--green); }
+  .hero-subtitle-en {
+    font-size: clamp(14px, 2vw, 18px);
+    font-weight: 300; letter-spacing: 0.18em;
+    color: var(--text-muted); text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .hero-date-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--white);
+    border: 1.5px solid var(--orange-light);
+    border-radius: 40px; padding: 10px 24px;
+    font-size: 15px; font-weight: 700; color: var(--orange-dark);
+    margin-bottom: 40px;
+    box-shadow: 0 2px 12px rgba(232,103,10,0.12);
+  }
+  .hero-kpis {
+    display: flex; justify-content: center; gap: 48px;
+    margin-bottom: 44px;
+  }
+  .hero-kpi { text-align: center; }
+  .hero-kpi-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 32px; font-weight: 900; color: var(--orange);
+    line-height: 1;
+  }
+  .hero-kpi-label {
+    font-size: 12px; color: var(--text-muted); margin-top: 4px;
+  }
+  .hero-divider {
+    width: 1px; height: 48px; background: var(--orange-light); opacity: 0.5;
+    align-self: center;
+  }
+  .hero-cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--orange); color: var(--white);
+    padding: 14px 36px; border-radius: 40px;
+    font-size: 15px; font-weight: 700;
+    text-decoration: none;
+    border: none; cursor: pointer;
+    transition: all 0.25s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); }
+  .btn-secondary {
+    background: transparent; color: var(--green);
+    padding: 14px 36px; border-radius: 40px;
+    font-size: 15px; font-weight: 700;
+    border: 2px solid var(--green);
+    text-decoration: none; cursor: pointer;
+    transition: all 0.25s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { background: var(--green); color: var(--white); transform: translateY(-2px); }
+
+  /* ── SECTION BASE ── */
+  section { padding: 100px 24px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.16em;
+    color: var(--orange); text-transform: uppercase; margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 900; line-height: 1.2;
+    color: var(--text); margin-bottom: 16px;
+  }
+  .section-desc {
+    font-size: 16px; line-height: 1.8; color: var(--text-muted); max-width: 600px;
+    margin-bottom: 56px;
+  }
+
+  /* ── INTRO ── */
+  #intro { background: var(--white); }
+  .intro-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: center;
+  }
+  .intro-svg-wrap {
+    background: var(--orange-pale);
+    border-radius: 24px; overflow: hidden;
+    aspect-ratio: 1;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .info-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+  .info-card {
+    background: var(--cream);
+    border: 1.5px solid #E8D5B0;
+    border-radius: 16px; padding: 20px;
+  }
+  .info-card-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--orange); text-transform: uppercase; margin-bottom: 6px; }
+  .info-card-value { font-size: 15px; font-weight: 700; color: var(--text); }
+
+  /* ── PROGRAM ── */
+  #program { background: var(--cream); }
+  .program-timeline {
+    position: relative;
+  }
+  .timeline-line {
+    position: absolute; left: 120px; top: 0; bottom: 0;
+    width: 2px; background: linear-gradient(to bottom, var(--orange-light), var(--green-light));
+  }
+  .timeline-day {
+    display: flex; gap: 40px; margin-bottom: 56px;
+    position: relative;
+  }
+  .timeline-date {
+    width: 100px; flex-shrink: 0; text-align: right;
+    padding-top: 4px;
+  }
+  .timeline-date-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 28px; font-weight: 900; color: var(--orange);
+    line-height: 1;
+  }
+  .timeline-date-label {
+    font-size: 12px; color: var(--text-muted); margin-top: 2px;
+  }
+  .timeline-dot {
+    position: absolute; left: 112px; top: 8px;
+    width: 18px; height: 18px;
+    background: var(--orange); border: 3px solid var(--white);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--orange-light);
+    flex-shrink: 0;
+  }
+  .timeline-events {
+    flex: 1; display: flex; flex-wrap: wrap; gap: 12px; padding-left: 40px;
+  }
+  .event-chip {
+    background: var(--white); border: 1.5px solid #E8D5B0;
+    border-radius: 12px; padding: 12px 18px;
+    min-width: 160px;
+  }
+  .event-chip-time { font-size: 11px; color: var(--orange); font-weight: 700; }
+  .event-chip-title { font-size: 14px; font-weight: 700; color: var(--text); margin-top: 2px; }
+  .event-chip-desc { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .event-chip.highlight { background: var(--orange-pale); border-color: var(--orange-light); }
+  .event-chip.green { background: var(--green-pale); border-color: #A8D5B0; }
+
+  /* ── MAP ── */
+  #access { background: var(--white); }
+  .access-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: start; }
+  .map-wrap {
+    background: var(--orange-pale); border-radius: 20px; overflow: hidden;
+    border: 2px solid var(--orange-light);
+  }
+  .transport-list { display: flex; flex-direction: column; gap: 20px; }
+  .transport-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 20px; background: var(--cream); border-radius: 16px;
+    border: 1.5px solid #E8D5B0;
+  }
+  .transport-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    background: var(--orange-pale); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .transport-name { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .transport-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── APPLY ── */
+  #apply { background: linear-gradient(135deg, var(--orange-dark) 0%, #C05A08 50%, var(--green) 100%); }
+  #apply .section-label { color: #FFD080; }
+  #apply .section-title { color: var(--white); }
+  #apply .section-desc { color: rgba(255,255,255,0.75); }
+  .apply-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .apply-card {
+    background: rgba(255,255,255,0.1);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    border-radius: 20px; padding: 28px 24px;
+    backdrop-filter: blur(4px);
+  }
+  .apply-card-icon {
+    width: 52px; height: 52px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+  .apply-card-title { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+  .apply-card-desc { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 20px; }
+  .apply-card-deadline {
+    font-size: 12px; font-weight: 700;
+    color: #FFD080; letter-spacing: 0.05em;
+  }
+  .btn-apply {
+    display: block; text-align: center;
+    background: var(--white); color: var(--orange-dark);
+    padding: 12px; border-radius: 12px;
+    font-size: 14px; font-weight: 700;
+    text-decoration: none; margin-top: 14px;
+    transition: all 0.2s;
+  }
+  .btn-apply:hover { background: #FFD080; }
+
+  /* ── NOTICE ── */
+  #notice { background: var(--cream); }
+  .notice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .notice-card {
+    background: var(--white); border-radius: 16px;
+    border: 1.5px solid #E8D5B0; overflow: hidden;
+  }
+  .notice-card-header {
+    padding: 16px 22px;
+    border-bottom: 1px solid #F0E5D0;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .notice-card-title { font-size: 16px; font-weight: 700; color: var(--text); }
+  .notice-more { font-size: 12px; color: var(--orange); font-weight: 700; text-decoration: none; }
+  .notice-list { padding: 8px 0; }
+  .notice-item {
+    padding: 12px 22px;
+    display: flex; align-items: flex-start; gap: 12px;
+    border-bottom: 1px solid #F8F0E4;
+  }
+  .notice-item:last-child { border-bottom: none; }
+  .notice-badge {
+    font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 6px;
+    flex-shrink: 0; margin-top: 1px;
+    background: var(--orange-pale); color: var(--orange-dark);
+  }
+  .notice-badge.green { background: var(--green-pale); color: var(--green); }
+  .notice-item-text { font-size: 13px; color: var(--text); line-height: 1.5; }
+  .notice-item-date { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
+
+  /* ── FAQ ── */
+  #faq { background: var(--white); }
+  .faq-list { max-width: 760px; }
+  .faq-item {
+    border-bottom: 1.5px solid #EDE0CC;
+    overflow: hidden;
+  }
+  .faq-q {
+    width: 100%; text-align: left; background: none; border: none; cursor: pointer;
+    padding: 22px 0;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 16px; font-weight: 700; color: var(--text);
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .faq-q-arrow {
+    width: 24px; height: 24px; flex-shrink: 0;
+    background: var(--orange-pale); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.3s;
+    font-size: 14px; color: var(--orange);
+  }
+  .faq-item.open .faq-q-arrow { transform: rotate(180deg); }
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    font-size: 14px; color: var(--text-muted); line-height: 1.8;
+    transition: max-height 0.35s ease, padding 0.35s;
+  }
+  .faq-item.open .faq-a { max-height: 200px; padding-bottom: 20px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--brown);
+    color: rgba(255,255,255,0.7);
+    padding: 60px 24px;
+  }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px;
+  }
+  .footer-logo {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 20px; font-weight: 900;
+    color: var(--white); margin-bottom: 12px;
+  }
+  .footer-addr { font-size: 13px; line-height: 1.8; }
+  .footer-col-title {
+    font-size: 13px; font-weight: 700; color: var(--white);
+    margin-bottom: 14px; letter-spacing: 0.06em;
+  }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 8px; }
+  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; }
+  .footer-links a:hover { color: var(--orange-light); }
+  .footer-bottom {
+    max-width: 1100px; margin: 40px auto 0;
+    padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.15);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; color: rgba(255,255,255,0.4);
+  }
+  .footer-orange { color: var(--orange-light); }
+
+  /* ── SCROLL ANIM ── */
+  .fade-up {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .intro-grid, .access-grid, .notice-grid, .footer-inner { grid-template-columns: 1fr; }
+    .apply-grid { grid-template-columns: 1fr; }
+    .timeline-line { left: 60px; }
+    .timeline-date { width: 50px; }
+    .timeline-dot { left: 52px; }
+    .timeline-events { padding-left: 24px; }
+    .hero-kpis { gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <circle cx="16" cy="16" r="14" fill="#FEF3E8" stroke="#E8670A" stroke-width="1.5"/>
+      <ellipse cx="16" cy="18" rx="9" ry="8" fill="#F7A943"/>
+      <ellipse cx="16" cy="16" rx="7" ry="6.5" fill="#E8670A"/>
+      <ellipse cx="16" cy="15" rx="5" ry="4.5" fill="#C05A08"/>
+      <path d="M16 8 C16 8 14 4 18 3 C18 3 17 6 16 8Z" fill="#2E6B3E"/>
+      <path d="M16 8 C16 8 18 4 22 5 C22 5 19 7 16 8Z" fill="#4A9B5F"/>
+    </svg>
+    2026 제주감귤축제
+  </a>
+  <div class="nav-links">
+    <a href="#intro">행사소개</a>
+    <a href="#program">프로그램</a>
+    <a href="#access">찾아오기</a>
+    <a href="#apply">접수하기</a>
+    <a href="#notice">공지사항</a>
+    <a href="#faq">FAQ</a>
+    <a href="#apply" class="nav-cta">사전등록</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-deco">
+    <!-- Decorative citrus SVG background -->
+    <svg width="100%" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Large citrus circle left -->
+      <circle cx="120" cy="200" r="180" fill="#F7A943" opacity="0.08"/>
+      <circle cx="120" cy="200" r="120" fill="#E8670A" opacity="0.06"/>
+      <!-- Citrus slice lines -->
+      <line x1="120" y1="80" x2="120" y2="320" stroke="#E8670A" stroke-width="1" opacity="0.12"/>
+      <line x1="0" y1="200" x2="240" y2="200" stroke="#E8670A" stroke-width="1" opacity="0.12"/>
+      <line x1="35" y1="115" x2="205" y2="285" stroke="#E8670A" stroke-width="1" opacity="0.10"/>
+      <line x1="205" y1="115" x2="35" y2="285" stroke="#E8670A" stroke-width="1" opacity="0.10"/>
+
+      <!-- Large citrus circle right -->
+      <circle cx="1360" cy="700" r="240" fill="#F7A943" opacity="0.07"/>
+      <circle cx="1360" cy="700" r="160" fill="#E8670A" opacity="0.05"/>
+      <line x1="1360" y1="540" x2="1360" y2="860" stroke="#E8670A" stroke-width="1" opacity="0.10"/>
+      <line x1="1200" y1="700" x2="1520" y2="700" stroke="#E8670A" stroke-width="1" opacity="0.10"/>
+      <line x1="1247" y1="587" x2="1473" y2="813" stroke="#E8670A" stroke-width="1" opacity="0.08"/>
+
+      <!-- Small decorative citrus fruits -->
+      <circle cx="900" cy="100" r="40" fill="#4A9B5F" opacity="0.08"/>
+      <circle cx="900" cy="100" r="24" fill="#2E6B3E" opacity="0.06"/>
+
+      <circle cx="400" cy="800" r="60" fill="#F7A943" opacity="0.07"/>
+      <circle cx="1100" cy="200" r="35" fill="#2E6B3E" opacity="0.07"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">🍊 2026 JEJU CITRUS FESTIVAL</div>
+    <h1 class="hero-title">
+      황금빛 감귤의<br>
+      <span>제주</span>로 오세요
+    </h1>
+    <p class="hero-subtitle-en">Jeju Citrus Festival 2026</p>
+    <div class="hero-date-badge">
+      📅 2026년 11월 6일(금) — 11월 9일(월) · 3박 4일
+    </div>
+    <div class="hero-kpis">
+      <div class="hero-kpi">
+        <div class="hero-kpi-num">4일</div>
+        <div class="hero-kpi-label">행사 기간</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-kpi">
+        <div class="hero-kpi-num">2만명</div>
+        <div class="hero-kpi-label">예상 방문객</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-kpi">
+        <div class="hero-kpi-num">30+</div>
+        <div class="hero-kpi-label">프로그램</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-kpi">
+        <div class="hero-kpi-num">무료</div>
+        <div class="hero-kpi-label">입장료</div>
+      </div>
+    </div>
+    <div class="hero-cta-row">
+      <a href="#apply" class="btn-primary">사전등록 하기</a>
+      <a href="#program" class="btn-secondary">프로그램 보기</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section id="intro">
+  <div class="section-inner">
+    <div class="intro-grid">
+      <div class="fade-up">
+        <div class="section-label">행사 소개</div>
+        <h2 class="section-title">제주의 가을,<br>감귤향 가득한 4일</h2>
+        <p class="section-desc">
+          제주시가 주최하는 2026 제주감귤축제는 제주를 대표하는 특산물 감귤의 수확 시즌을 기념하는 도민과 관광객을 위한 대표 가을 축제입니다. 탑동광장과 제주항 일원에서 감귤 수확 체험, 문화공연, 먹거리 장터 등 다채로운 프로그램이 펼쳐집니다.
+        </p>
+        <div class="info-cards">
+          <div class="info-card">
+            <div class="info-card-label">📅 일시</div>
+            <div class="info-card-value">2026. 11. 6.(금)<br>~ 11. 9.(월)</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-label">📍 장소</div>
+            <div class="info-card-value">탑동광장·제주항 일원</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-label">👥 대상</div>
+            <div class="info-card-value">내·외국인 전 시민 및 관광객</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-label">💰 예산</div>
+            <div class="info-card-value">3억 원 (제주시 주최)</div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up intro-svg-wrap">
+        <!-- Detailed Citrus Illustration SVG -->
+        <svg viewBox="0 0 400 400" width="100%" xmlns="http://www.w3.org/2000/svg" aria-label="감귤 일러스트레이션">
+          <!-- Background -->
+          <rect width="400" height="400" fill="#FEF3E8"/>
+
+          <!-- Basket -->
+          <ellipse cx="200" cy="310" rx="110" ry="24" fill="#C97A30" opacity="0.4"/>
+          <rect x="100" y="230" width="200" height="90" rx="12" fill="#D4893A"/>
+          <rect x="100" y="230" width="200" height="24" rx="8" fill="#C07020"/>
+          <!-- Basket weave lines -->
+          <line x1="133" y1="254" x2="133" y2="320" stroke="#B06018" stroke-width="1.5" opacity="0.6"/>
+          <line x1="166" y1="254" x2="166" y2="320" stroke="#B06018" stroke-width="1.5" opacity="0.6"/>
+          <line x1="200" y1="254" x2="200" y2="320" stroke="#B06018" stroke-width="1.5" opacity="0.6"/>
+          <line x1="234" y1="254" x2="234" y2="320" stroke="#B06018" stroke-width="1.5" opacity="0.6"/>
+          <line x1="267" y1="254" x2="267" y2="320" stroke="#B06018" stroke-width="1.5" opacity="0.6"/>
+          <line x1="100" y1="275" x2="300" y2="275" stroke="#B06018" stroke-width="1.5" opacity="0.6"/>
+          <line x1="100" y1="295" x2="300" y2="295" stroke="#B06018" stroke-width="1.5" opacity="0.6"/>
+          <!-- Basket handle -->
+          <path d="M140 230 Q200 180 260 230" fill="none" stroke="#C07020" stroke-width="8" stroke-linecap="round"/>
+
+          <!-- Citrus fruits in basket -->
+          <!-- Big orange center -->
+          <circle cx="200" cy="225" r="38" fill="#F7A943"/>
+          <circle cx="200" cy="225" r="34" fill="#E8670A"/>
+          <path d="M200 191 C200 191 198 184 202 182 C202 182 201 188 200 191Z" fill="#2E6B3E"/>
+          <path d="M200 191 C200 191 203 184 207 185 C207 185 204 189 200 191Z" fill="#4A9B5F"/>
+          <!-- Segment lines -->
+          <line x1="200" y1="191" x2="200" y2="259" stroke="#C05A08" stroke-width="0.8" opacity="0.5"/>
+          <line x1="162" y1="225" x2="238" y2="225" stroke="#C05A08" stroke-width="0.8" opacity="0.5"/>
+          <line x1="173" y1="198" x2="227" y2="252" stroke="#C05A08" stroke-width="0.8" opacity="0.5"/>
+          <line x1="227" y1="198" x2="173" y2="252" stroke="#C05A08" stroke-width="0.8" opacity="0.5"/>
+
+          <!-- Orange left -->
+          <circle cx="148" cy="238" r="28" fill="#F7A943"/>
+          <circle cx="148" cy="238" r="24" fill="#E8670A"/>
+          <path d="M148 214 C148 214 146 208 149 207" fill="none" stroke="#2E6B3E" stroke-width="2.5" stroke-linecap="round"/>
+
+          <!-- Orange right -->
+          <circle cx="252" cy="240" r="26" fill="#F7A943"/>
+          <circle cx="252" cy="240" r="22" fill="#E8670A"/>
+          <path d="M252 218 C252 218 250 212 253 211" fill="none" stroke="#2E6B3E" stroke-width="2.5" stroke-linecap="round"/>
+
+          <!-- Green leaf branch top left -->
+          <path d="M100 130 Q130 80 160 120" fill="none" stroke="#2E6B3E" stroke-width="2.5"/>
+          <ellipse cx="130" cy="103" rx="22" ry="11" fill="#4A9B5F" transform="rotate(-30 130 103)"/>
+          <ellipse cx="155" cy="120" rx="18" ry="9" fill="#2E6B3E" transform="rotate(-10 155 120)"/>
+          <circle cx="108" cy="128" r="18" fill="#F7A943"/>
+          <circle cx="108" cy="128" r="15" fill="#E8670A"/>
+
+          <!-- Green leaf branch top right -->
+          <path d="M300 140 Q270 90 240 125" fill="none" stroke="#2E6B3E" stroke-width="2.5"/>
+          <ellipse cx="270" cy="113" rx="22" ry="11" fill="#4A9B5F" transform="rotate(30 270 113)"/>
+          <ellipse cx="245" cy="127" rx="18" ry="9" fill="#2E6B3E" transform="rotate(10 245 127)"/>
+          <circle cx="295" cy="140" r="20" fill="#F7A943"/>
+          <circle cx="295" cy="140" r="16" fill="#E8670A"/>
+
+          <!-- Scattered small decorative elements -->
+          <circle cx="170" cy="160" r="8" fill="#F7A943" opacity="0.6"/>
+          <circle cx="230" cy="155" r="6" fill="#E8670A" opacity="0.5"/>
+          <ellipse cx="310" cy="200" rx="10" ry="8" fill="#4A9B5F" opacity="0.4" transform="rotate(-20 310 200)"/>
+          <ellipse cx="90" cy="200" rx="10" ry="8" fill="#4A9B5F" opacity="0.4" transform="rotate(20 90 200)"/>
+
+          <!-- Decorative sparkles -->
+          <text x="340" y="100" font-size="22" opacity="0.5">🌿</text>
+          <text x="50" y="100" font-size="18" opacity="0.5">✨</text>
+          <text x="180" y="60" font-size="16" opacity="0.6">🍊</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section id="program">
+  <div class="section-inner">
+    <div class="section-label">프로그램</div>
+    <h2 class="section-title">4일간의 알찬 일정</h2>
+    <p class="section-desc">감귤 수확 체험부터 문화공연, 먹거리 장터까지 — 온 가족이 즐길 수 있는 풍성한 프로그램이 준비되어 있습니다.</p>
+
+    <div class="program-timeline fade-up">
+      <div class="timeline-line"></div>
+
+      <!-- Day 1 -->
+      <div class="timeline-day">
+        <div class="timeline-date">
+          <div class="timeline-date-num">11/6</div>
+          <div class="timeline-date-label">금요일</div>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-events">
+          <div class="event-chip highlight">
+            <div class="event-chip-time">14:00</div>
+            <div class="event-chip-title">🎉 개막식</div>
+            <div class="event-chip-desc">탑동광장 야외무대</div>
+          </div>
+          <div class="event-chip">
+            <div class="event-chip-time">15:00</div>
+            <div class="event-chip-title">감귤 홍보관 개관</div>
+            <div class="event-chip-desc">품종 전시 및 시식</div>
+          </div>
+          <div class="event-chip">
+            <div class="event-chip-time">17:00</div>
+            <div class="event-chip-title">감귤 경매 체험</div>
+            <div class="event-chip-desc">도민 참여형 이벤트</div>
+          </div>
+          <div class="event-chip green">
+            <div class="event-chip-time">19:00</div>
+            <div class="event-chip-title">개막 기념 공연</div>
+            <div class="event-chip-desc">지역 음악인 초청 공연</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 2 -->
+      <div class="timeline-day">
+        <div class="timeline-date">
+          <div class="timeline-date-num">11/7</div>
+          <div class="timeline-date-label">토요일</div>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-events">
+          <div class="event-chip">
+            <div class="event-chip-time">10:00</div>
+            <div class="event-chip-title">감귤 수확 체험</div>
+            <div class="event-chip-desc">사전접수 가족 대상</div>
+          </div>
+          <div class="event-chip">
+            <div class="event-chip-time">11:00</div>
+            <div class="event-chip-title">감귤 요리 경연</div>
+            <div class="event-chip-desc">청주·마마레이드 등</div>
+          </div>
+          <div class="event-chip highlight">
+            <div class="event-chip-time">14:00</div>
+            <div class="event-chip-title">감귤 아트 워크숍</div>
+            <div class="event-chip-desc">어린이 체험 프로그램</div>
+          </div>
+          <div class="event-chip">
+            <div class="event-chip-time">16:00</div>
+            <div class="event-chip-title">감귤 묘목 나눔</div>
+            <div class="event-chip-desc">선착순 500명</div>
+          </div>
+          <div class="event-chip green">
+            <div class="event-chip-time">19:30</div>
+            <div class="event-chip-title">K-POP 버스킹</div>
+            <div class="event-chip-desc">탑동광장 야외무대</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 3 -->
+      <div class="timeline-day">
+        <div class="timeline-date">
+          <div class="timeline-date-num">11/8</div>
+          <div class="timeline-date-label">일요일</div>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-events">
+          <div class="event-chip">
+            <div class="event-chip-time">10:00</div>
+            <div class="event-chip-title">감귤 수확 체험</div>
+            <div class="event-chip-desc">사전접수 가족 대상</div>
+          </div>
+          <div class="event-chip highlight">
+            <div class="event-chip-time">13:00</div>
+            <div class="event-chip-title">감귤 왕 선발대회</div>
+            <div class="event-chip-desc">가장 무거운 감귤 찾기</div>
+          </div>
+          <div class="event-chip">
+            <div class="event-chip-time">15:00</div>
+            <div class="event-chip-title">생산자 직거래 장터</div>
+            <div class="event-chip-desc">제주 농가 직접 판매</div>
+          </div>
+          <div class="event-chip green">
+            <div class="event-chip-time">18:00</div>
+            <div class="event-chip-title">제주 전통 공연</div>
+            <div class="event-chip-desc">해녀 문화 퍼포먼스</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 4 -->
+      <div class="timeline-day">
+        <div class="timeline-date">
+          <div class="timeline-date-num">11/9</div>
+          <div class="timeline-date-label">월요일</div>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-events">
+          <div class="event-chip">
+            <div class="event-chip-time">10:00</div>
+            <div class="event-chip-title">감귤 수확 마지막 체험</div>
+            <div class="event-chip-desc">사전접수 선착순</div>
+          </div>
+          <div class="event-chip">
+            <div class="event-chip-time">14:00</div>
+            <div class="event-chip-title">감귤 요리 시연</div>
+            <div class="event-chip-desc">제주 셰프 초청</div>
+          </div>
+          <div class="event-chip highlight">
+            <div class="event-chip-time">16:00</div>
+            <div class="event-chip-title">🎊 폐막식 및 추첨</div>
+            <div class="event-chip-desc">감사 공연 · 경품 추첨</div>
+          </div>
+          <div class="event-chip green">
+            <div class="event-chip-time">17:00</div>
+            <div class="event-chip-title">감귤 나눔 행사</div>
+            <div class="event-chip-desc">남은 감귤 무료 나눔</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section id="access">
+  <div class="section-inner">
+    <div class="access-grid">
+      <div class="fade-up">
+        <div class="section-label">찾아오기</div>
+        <h2 class="section-title">탑동광장·제주항으로<br>오시는 길</h2>
+        <!-- MAP SVG -->
+        <div class="map-wrap">
+          <svg viewBox="0 0 540 380" width="100%" xmlns="http://www.w3.org/2000/svg" aria-label="제주시 탑동광장 약도">
+            <!-- Map background -->
+            <rect width="540" height="380" fill="#F5EDD8"/>
+            <!-- Sea (north) -->
+            <rect x="0" y="0" width="540" height="100" fill="#D4EAF5"/>
+            <text x="270" y="55" text-anchor="middle" font-family="Noto Sans KR,sans-serif" font-size="14" fill="#5B8FA8">제 주 해 협</text>
+
+            <!-- Main roads -->
+            <rect x="0" y="100" width="540" height="14" fill="#E8C88A" opacity="0.8"/>
+            <text x="60" y="110" font-family="Noto Sans KR,sans-serif" font-size="9" fill="#8B6820">해안도로</text>
+
+            <!-- Side roads -->
+            <rect x="120" y="100" width="10" height="260" fill="#E8C88A" opacity="0.7"/>
+            <rect x="300" y="100" width="10" height="260" fill="#E8C88A" opacity="0.7"/>
+            <rect x="0" y="200" width="540" height="10" fill="#E8C88A" opacity="0.6"/>
+            <rect x="0" y="280" width="540" height="10" fill="#E8C88A" opacity="0.6"/>
+
+            <!-- Jeju Port -->
+            <rect x="30" y="85" width="90" height="30" rx="4" fill="#B8D4E8"/>
+            <text x="75" y="103" text-anchor="middle" font-family="Noto Sans KR,sans-serif" font-size="11" font-weight="700" fill="#1A5070">제주항</text>
+
+            <!-- Tapdong Plaza - MAIN VENUE -->
+            <rect x="150" y="115" width="140" height="80" rx="8" fill="#E8670A"/>
+            <rect x="153" y="118" width="134" height="74" rx="6" fill="#F7A943" opacity="0.7"/>
+            <text x="220" y="152" text-anchor="middle" font-family="Noto Sans KR,sans-serif" font-size="13" font-weight="700" fill="#5C2800">탑동광장</text>
+            <text x="220" y="170" text-anchor="middle" font-family="Noto Sans KR,sans-serif" font-size="10" fill="#8B4000">🎪 행사장</text>
+
+            <!-- PIN icon -->
+            <circle cx="220" cy="108" r="10" fill="#E8670A"/>
+            <circle cx="220" cy="108" r="5" fill="#FFF"/>
+            <line x1="220" y1="118" x2="220" y2="115" stroke="#E8670A" stroke-width="2"/>
+
+            <!-- Nearby landmarks -->
+            <rect x="340" y="130" width="80" height="40" rx="6" fill="#D4EAD8"/>
+            <text x="380" y="153" text-anchor="middle" font-family="Noto Sans KR,sans-serif" font-size="10" fill="#2E6B3E">제주시청</text>
+
+            <rect x="160" y="230" width="90" height="36" rx="6" fill="#EAD8C8"/>
+            <text x="205" y="252" text-anchor="middle" font-family="Noto Sans KR,sans-serif" font-size="10" fill="#5C3D1E">제주버스터미널</text>
+
+            <rect x="360" y="240" width="80" height="36" rx="6" fill="#EAD8C8"/>
+            <text x="400" y="262" text-anchor="middle" font-family="Noto Sans KR,sans-serif" font-size="10" fill="#5C3D1E">제주공항</text>
+
+            <!-- Directional arrow from airport -->
+            <path d="M360 258 Q290 250 300 210 Q305 185 310 170" fill="none" stroke="#E8670A" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#marrow)"/>
+            <defs>
+              <marker id="marrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M2 1L8 5L2 9" fill="none" stroke="#E8670A" stroke-width="1.5" stroke-linecap="round"/>
+              </marker>
+            </defs>
+            <text x="348" y="225" font-family="Noto Sans KR,sans-serif" font-size="10" fill="#E8670A">차 15분</text>
+
+            <!-- North indicator -->
+            <circle cx="500" cy="330" r="20" fill="white" stroke="#C0A060" stroke-width="1"/>
+            <path d="M500 316 L504 338 L500 334 L496 338 Z" fill="#E8670A"/>
+            <text x="500" y="356" text-anchor="middle" font-family="Noto Sans KR,sans-serif" font-size="9" fill="#6B5B3E">N</text>
+
+            <!-- Scale -->
+            <line x1="30" y1="355" x2="110" y2="355" stroke="#6B5B3E" stroke-width="1.5"/>
+            <line x1="30" y1="350" x2="30" y2="360" stroke="#6B5B3E" stroke-width="1.5"/>
+            <line x1="110" y1="350" x2="110" y2="360" stroke="#6B5B3E" stroke-width="1.5"/>
+            <text x="70" y="370" text-anchor="middle" font-family="Noto Sans KR,sans-serif" font-size="9" fill="#6B5B3E">500m</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="fade-up">
+        <div style="height: 88px;"></div>
+        <div class="transport-list">
+          <div class="transport-item">
+            <div class="transport-icon">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <rect x="3" y="6" width="20" height="14" rx="3" fill="#E8670A"/>
+                <rect x="5" y="8" width="16" height="8" rx="1.5" fill="#FEF3E8"/>
+                <circle cx="8" cy="20" r="2.5" fill="#5C3D1E"/>
+                <circle cx="18" cy="20" r="2.5" fill="#5C3D1E"/>
+                <rect x="9" y="4" width="8" height="4" rx="1" fill="#C05A08"/>
+              </svg>
+            </div>
+            <div>
+              <div class="transport-name">버스 이용</div>
+              <div class="transport-desc">제주시외버스터미널 → 탑동 방향<br>100, 200번 버스 승차 후 탑동광장 하차</div>
+            </div>
+          </div>
+          <div class="transport-item">
+            <div class="transport-icon">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <ellipse cx="13" cy="18" rx="9" ry="4" fill="#DDD" opacity="0.5"/>
+                <rect x="5" y="9" width="16" height="10" rx="4" fill="#2E6B3E"/>
+                <rect x="7" y="11" width="12" height="5" rx="1.5" fill="#EAF5ED"/>
+                <circle cx="8.5" cy="19" r="2" fill="#1A3C26"/>
+                <circle cx="17.5" cy="19" r="2" fill="#1A3C26"/>
+                <rect x="10" y="6" width="6" height="4" rx="1" fill="#246040"/>
+              </svg>
+            </div>
+            <div>
+              <div class="transport-name">자가용 이용</div>
+              <div class="transport-desc">제주국제공항에서 약 15분<br>탑동 주차장 이용 (유료, 행사 기간 할인)</div>
+            </div>
+          </div>
+          <div class="transport-item">
+            <div class="transport-icon">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <path d="M13 4 C8.5 4 5 7.5 5 12 C5 18 13 24 13 24 C13 24 21 18 21 12 C21 7.5 17.5 4 13 4Z" fill="#E8670A"/>
+                <circle cx="13" cy="12" r="4" fill="#FEF3E8"/>
+              </svg>
+            </div>
+            <div>
+              <div class="transport-name">도보·자전거</div>
+              <div class="transport-desc">제주시 원도심에서 도보 10~15분<br>행사장 주변 자전거 거치대 운영</div>
+            </div>
+          </div>
+          <div class="transport-item">
+            <div class="transport-icon">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <path d="M7 12 C7 8 10 5 13 5 C16 5 21 8 21 12 C21 17 13 22 13 22Z" fill="#C8D4E8"/>
+                <path d="M7 12 C7 8 4 8 3 10 C3 13 5 14 7 14Z" fill="#B0C0D8"/>
+                <path d="M5 19 L8 16 L8 22Z" fill="#5C3D1E"/>
+              </svg>
+            </div>
+            <div>
+              <div class="transport-name">셔틀버스 운행</div>
+              <div class="transport-desc">제주공항 ↔ 탑동광장 셔틀 운행<br>매 30분 간격 (09:00~21:00)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLY -->
+<section id="apply">
+  <div class="section-inner">
+    <div class="section-label">접수하기</div>
+    <h2 class="section-title">지금 바로 신청하세요</h2>
+    <p class="section-desc">수확 체험, 요리 워크숍, 공연 관람 등 인기 프로그램은 사전 접수가 필수입니다. 선착순 마감되니 서두르세요.</p>
+
+    <div class="apply-grid">
+      <div class="apply-card fade-up">
+        <div class="apply-card-icon">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <circle cx="15" cy="10" r="6" fill="rgba(255,255,255,0.8)"/>
+            <path d="M5 28 C5 20 25 20 25 28" fill="rgba(255,255,255,0.8)"/>
+          </svg>
+        </div>
+        <div class="apply-card-title">개인 사전등록</div>
+        <div class="apply-card-desc">개인·커플·가족 단위로 참가 신청하세요. 프로그램별 시간대를 선택하고 사전등록하면 현장 대기 없이 바로 참여할 수 있습니다.</div>
+        <div class="apply-card-deadline">마감: 2026. 10. 30.(금)</div>
+        <a href="#" class="btn-apply" onclick="alert('사전등록 접수 기간: 2026. 10. 1 ~ 10. 30\n제주시청 누리집에서 접수하세요.')">개인 신청하기 →</a>
+      </div>
+      <div class="apply-card fade-up">
+        <div class="apply-card-icon">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <rect x="4" y="8" width="22" height="16" rx="3" fill="rgba(255,255,255,0.8)"/>
+            <circle cx="10" cy="14" r="2.5" fill="rgba(255,165,0,0.7)"/>
+            <circle cx="20" cy="14" r="2.5" fill="rgba(255,165,0,0.7)"/>
+            <circle cx="15" cy="19" r="2.5" fill="rgba(255,165,0,0.7)"/>
+          </svg>
+        </div>
+        <div class="apply-card-title">단체 방문 신청</div>
+        <div class="apply-card-desc">학교, 기관, 동호회 등 10인 이상 단체는 단체 전용 프로그램과 가이드 투어를 신청하실 수 있습니다. 전화 문의 후 온라인 접수 가능.</div>
+        <div class="apply-card-deadline">마감: 2026. 10. 23.(금)</div>
+        <a href="#" class="btn-apply" onclick="alert('단체 신청 문의: 064-728-3000\n제주시 관광진흥과')">단체 신청하기 →</a>
+      </div>
+      <div class="apply-card fade-up">
+        <div class="apply-card-icon">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <rect x="6" y="4" width="18" height="22" rx="3" fill="rgba(255,255,255,0.8)"/>
+            <line x1="10" y1="11" x2="20" y2="11" stroke="rgba(200,100,0,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="10" y1="15" x2="20" y2="15" stroke="rgba(200,100,0,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="10" y1="19" x2="16" y2="19" stroke="rgba(200,100,0,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="apply-card-title">부스 참가 신청</div>
+        <div class="apply-card-desc">감귤 관련 상품 판매, 체험 부스 운영을 희망하는 지역 농가·소상공인은 부스 참가 신청을 하실 수 있습니다. 제주 농특산물 우선 선발.</div>
+        <div class="apply-card-deadline">마감: 2026. 10. 16.(금)</div>
+        <a href="#" class="btn-apply" onclick="alert('부스 신청: 064-728-3001\n담당자: 제주시 축제기획팀')">부스 신청하기 →</a>
+      </div>
+    </div>
+
+    <!-- Apply form teaser -->
+    <div style="background: rgba(255,255,255,0.12); border: 1.5px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 32px 40px; margin-top: 36px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;" class="fade-up">
+      <div>
+        <div style="font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 6px;">문의처</div>
+        <div style="font-size: 20px; font-weight: 700; color: white;">제주시청 관광진흥과</div>
+        <div style="font-size: 15px; color: rgba(255,255,255,0.8); margin-top: 4px;">☎ 064-728-3000 · 평일 09:00~18:00</div>
+      </div>
+      <a href="mailto:festival@jeju.go.kr" class="btn-primary" style="background: white; color: var(--orange-dark);">이메일 문의하기</a>
+    </div>
+  </div>
+</section>
+
+<!-- NOTICE -->
+<section id="notice">
+  <div class="section-inner">
+    <div class="section-label">공지사항</div>
+    <h2 class="section-title">최신 소식</h2>
+
+    <div class="notice-grid fade-up">
+      <div class="notice-card">
+        <div class="notice-card-header">
+          <div class="notice-card-title">공지사항</div>
+          <a href="#" class="notice-more">전체보기 →</a>
+        </div>
+        <div class="notice-list">
+          <div class="notice-item">
+            <span class="notice-badge">공지</span>
+            <div>
+              <div class="notice-item-text">2026 제주감귤축제 사전등록 시작 안내</div>
+              <div class="notice-item-date">2026.10.01</div>
+            </div>
+          </div>
+          <div class="notice-item">
+            <span class="notice-badge">공지</span>
+            <div>
+              <div class="notice-item-text">행사장 주차 및 교통 통제 안내</div>
+              <div class="notice-item-date">2026.10.10</div>
+            </div>
+          </div>
+          <div class="notice-item">
+            <span class="notice-badge green">모집</span>
+            <div>
+              <div class="notice-item-text">부스 참가 농가·소상공인 모집 공고</div>
+              <div class="notice-item-date">2026.09.20</div>
+            </div>
+          </div>
+          <div class="notice-item">
+            <span class="notice-badge green">모집</span>
+            <div>
+              <div class="notice-item-text">자원봉사자 모집 — 축제 운영 지원</div>
+              <div class="notice-item-date">2026.09.15</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="notice-card">
+        <div class="notice-card-header">
+          <div class="notice-card-title">유의사항 및 안내</div>
+        </div>
+        <div class="notice-list">
+          <div class="notice-item">
+            <span class="notice-badge">안내</span>
+            <div>
+              <div class="notice-item-text">감귤 수확 체험은 사전예약 필수, 현장 접수 불가</div>
+              <div class="notice-item-date">운영 시간: 10:00~17:00</div>
+            </div>
+          </div>
+          <div class="notice-item">
+            <span class="notice-badge">안내</span>
+            <div>
+              <div class="notice-item-text">행사장 내 반려동물 동반 출입 금지</div>
+              <div class="notice-item-date">단, 시각장애인 안내견 제외</div>
+            </div>
+          </div>
+          <div class="notice-item">
+            <span class="notice-badge green">날씨</span>
+            <div>
+              <div class="notice-item-text">우천 시 일부 야외 프로그램 실내로 전환</div>
+              <div class="notice-item-date">홈페이지 공지 확인 요망</div>
+            </div>
+          </div>
+          <div class="notice-item">
+            <span class="notice-badge">안내</span>
+            <div>
+              <div class="notice-item-text">행사 기간 내 구매 감귤 직배송 서비스 운영</div>
+              <div class="notice-item-date">택배 부스 위치: C구역</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="section-label">자주 묻는 질문</div>
+    <h2 class="section-title">궁금한 점이 있으신가요?</h2>
+
+    <div class="faq-list fade-up">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          입장료가 있나요?
+          <span class="faq-q-arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          2026 제주감귤축제는 무료 입장입니다. 단, 감귤 수확 체험, 요리 워크숍 등 일부 유료 프로그램은 별도 참가비가 있을 수 있으며, 자세한 내용은 추후 안내 예정입니다.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          주차 공간이 있나요?
+          <span class="faq-q-arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          탑동 공용주차장 및 제주항 주변 공영주차장을 이용하실 수 있습니다. 행사 기간 중 주차료 50% 할인이 적용되며, 대중교통 이용을 권장합니다. 셔틀버스를 이용하시면 더 편리합니다.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          어린이와 함께 방문해도 되나요?
+          <span class="faq-q-arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          물론입니다! 어린이 전용 감귤 아트 워크숍, 수확 체험 등 가족 친화적 프로그램이 풍성하게 준비되어 있습니다. 유아동반 가족을 위한 수유실, 유모차 대여 서비스도 운영합니다.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          감귤 구입이 가능한가요?
+          <span class="faq-q-arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          네, 행사장 내 제주 농가 직거래 장터에서 다양한 품종의 제주 감귤을 시중보다 저렴하게 구입하실 수 있습니다. 구매한 감귤은 현장 포장 후 직접 가져가시거나 택배 발송 서비스를 이용하실 수 있습니다.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          외국인도 참가할 수 있나요?
+          <span class="faq-q-arrow">▼</span>
+        </button>
+        <div class="faq-a">
+          외국인 관광객을 포함한 모든 분들께 열려 있는 축제입니다. 주요 안내 사항은 영어·중국어·일본어로 제공되며, 외국어 안내 자원봉사자도 배치될 예정입니다.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">🍊 2026 제주감귤축제</div>
+      <div class="footer-addr">
+        주최 · 주관: 제주특별자치도 제주시<br>
+        문의: 제주시청 관광진흥과<br>
+        ☎ 064-728-3000<br>
+        ✉ festival@jeju.go.kr<br>
+        제주시 광양9길 10 (이도2동)
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">바로가기</div>
+      <ul class="footer-links">
+        <li><a href="#intro">행사 소개</a></li>
+        <li><a href="#program">프로그램 안내</a></li>
+        <li><a href="#access">찾아오기</a></li>
+        <li><a href="#apply">접수하기</a></li>
+        <li><a href="#notice">공지사항</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">관련 사이트</div>
+      <ul class="footer-links">
+        <li><a href="https://www.jeju.go.kr" target="_blank">제주특별자치도</a></li>
+        <li><a href="https://www.jejusi.go.kr" target="_blank">제주시청</a></li>
+        <li><a href="https://www.visitjeju.net" target="_blank">비짓제주</a></li>
+        <li><a href="#" target="_blank">제주감귤농협</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 제주시청 관광진흥과. All rights reserved.</span>
+    <span class="footer-orange">2026.11.06 — 2026.11.09 · 탑동광장</span>
+  </div>
+</footer>
+
+<script>
+  // FAQ toggle
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Nav active state
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) cur = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--orange)' : '';
+    });
+  });
+</script>
+</body>
+</html>
